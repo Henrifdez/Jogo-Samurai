@@ -11,14 +11,14 @@ function rectangularCollision({rectangle1, rectangle2}) {
 }
 
 function determineWinner({player, enemy, timerId}) {
-    cancelTimeout(timerId)
+    clearTimeout(timerId)
     document.querySelector('#displayText').style.display = 'flex'
     if(player.health === enemy.health) {
         document.querySelector('#displayText').innerHTML = 'tie'
     } else if (player.health > enemy.health) {
-        document.querySelector('#displayText').innerHTML = 'player 1 wins'
+        document.querySelector('#displayText').innerHTML = 'Jogador 1 Venceu'
     } else if (player.health < enemy.health) {
-        document.querySelector('#displayText').innerHTML = 'player 2 wins'
+        document.querySelector('#displayText').innerHTML = 'Jogador 2 Venceu'
     }
 }
 
@@ -32,6 +32,6 @@ function decreaseTimer(){
     }
 
     if (timer === 0) {
-        determineWinner({player, enemy})
+        determineWinner({player, enemy, timerId})
     }   
 }
